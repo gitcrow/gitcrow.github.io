@@ -1,0 +1,49 @@
+body, html {
+    height: 100%;
+}
+
+.header {
+    background-color: Gray;
+    height: 20%
+}
+
+.content {
+    height:60%;
+}
+
+.footer {
+    background-color: yellow;
+    height: 20%
+}
+
+span.ball {
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 1.6em;
+    display: none;
+  }
+span.ball.first {
+    background: #df9a07c0;
+}
+span.ball.second {
+    background: #0059ffd2;
+}
+span.ball.third {
+    background: #fa4d4d;
+}
+span.ball.forth {
+    background: #686868;
+}
+span.ball.fifth {
+    background: #49c502;
+}
+span.ball.on {
+    display: inline-block;
+}
