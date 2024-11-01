@@ -1,2 +1,2 @@
 # gitcrow.github.io
-lottery
+<a href="/main.html">play lottery</a>
