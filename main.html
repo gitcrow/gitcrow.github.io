@@ -20,11 +20,11 @@
             var totalBalls = [];
             $(document).ready(function() {
                 sessionStorage.removeItem("now");
-                const balls = [158, 145, 155, 151, 144, 152, 156, 144, 121, 153,
-                               155, 167, 165, 165, 152, 153, 160, 165, 157, 159,
-                               157, 135, 136, 152, 140, 153, 161, 142, 143, 146,
-                               154, 133, 164, 176, 150, 152, 158, 155, 153, 162,
-                               140, 145, 157, 153, 164];
+                const balls = [158, 146, 156, 152, 144, 152, 156, 144, 121, 153,
+                               156, 168, 165, 165, 153, 153, 160, 165, 157, 159,
+                               157, 135, 136, 152, 140, 154, 161, 142, 143, 146,
+                               155, 133, 165, 177, 150, 152, 159, 155, 153, 162,
+                               140, 145, 157, 154, 164];
                 var ballIndex = 0;
                 balls.forEach((ball,idx) => {
 	                ballIndex = idx + 1;
@@ -63,11 +63,11 @@
                                     });
                 var shtml = '';
                 for(var ball of result){
-                    if(ball <= 45) shtml = '<span class="ball first">'+ball+'</span>';
-                    if(ball <= 40) shtml = '<span class="ball second">'+ball+'</span>';
+                    if(ball <= 45) shtml = '<span class="ball fifth">'+ball+'</span>';
+                    if(ball <= 40) shtml = '<span class="ball forth">'+ball+'</span>';
                     if(ball <= 30) shtml = '<span class="ball third">'+ball+'</span>';
-                    if(ball <= 20) shtml = '<span class="ball forth">'+ball+'</span>';
-                    if(ball <= 10) shtml = '<span class="ball fifth">'+ball+'</span>';
+                    if(ball <= 20) shtml = '<span class="ball second">'+ball+'</span>';
+                    if(ball <= 10) shtml = '<span class="ball first">'+ball+'</span>';
                     $("#resultArea").append(shtml);
                 }
                 $("#resultArea").append("<!-- Divider-->")
