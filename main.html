@@ -28,20 +28,9 @@
                                140, 145, 157, 154, 164];
                 var ballIndex = 0;
                 balls.forEach((ball,idx) => {
-	                ballIndex = idx + 1;
+                    ballIndex = idx + 1;
                     for(var i =0 ; i < ball ; i++){
-                        switch (idx+1){
-                            case 1 : totalBalls.push(ballIndex); break; case 2 : totalBalls.push(ballIndex); break; case 3 : totalBalls.push(ballIndex); break; case 4 : totalBalls.push(ballIndex); break; case 5 : totalBalls.push(ballIndex); break;
-                            case 6 : totalBalls.push(ballIndex); break; case 7 : totalBalls.push(ballIndex); break; case 8 : totalBalls.push(ballIndex); break; case 9 : totalBalls.push(ballIndex); break; case 10 : totalBalls.push(ballIndex); break;
-                            case 11 : totalBalls.push(ballIndex); break; case 12 : totalBalls.push(ballIndex); break; case 13 : totalBalls.push(ballIndex); break; case 14 : totalBalls.push(ballIndex); break; case 15 : totalBalls.push(ballIndex); break;
-                            case 16 : totalBalls.push(ballIndex); break; case 17 : totalBalls.push(ballIndex); break; case 18 : totalBalls.push(ballIndex); break; case 19 : totalBalls.push(ballIndex); break; case 20 : totalBalls.push(ballIndex); break;
-                            case 21 : totalBalls.push(ballIndex); break; case 22 : totalBalls.push(ballIndex); break; case 23 : totalBalls.push(ballIndex); break; case 24 : totalBalls.push(ballIndex); break; case 25 : totalBalls.push(ballIndex); break;
-                            case 26 : totalBalls.push(ballIndex); break; case 27 : totalBalls.push(ballIndex); break; case 28 : totalBalls.push(ballIndex); break; case 29 : totalBalls.push(ballIndex); break; case 30 : totalBalls.push(ballIndex); break;
-                            case 31 : totalBalls.push(ballIndex); break; case 32 : totalBalls.push(ballIndex); break; case 33 : totalBalls.push(ballIndex); break; case 34 : totalBalls.push(ballIndex); break; case 35 : totalBalls.push(ballIndex); break;
-                            case 36 : totalBalls.push(ballIndex); break; case 37 : totalBalls.push(ballIndex); break; case 38 : totalBalls.push(ballIndex); break; case 39 : totalBalls.push(ballIndex); break; case 40 : totalBalls.push(ballIndex); break;
-                            case 41 : totalBalls.push(ballIndex); break; case 42 : totalBalls.push(ballIndex); break; case 43 : totalBalls.push(ballIndex); break; case 44 : totalBalls.push(ballIndex); break; case 45 : totalBalls.push(ballIndex); break;
-                            default : break;
-                        }
+                        totalBalls.push(ballIndex);
                     }
                 });
             });
@@ -103,14 +92,38 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg');">
+        <header class="masthead" style="background-image: url('./assets/img/home-bg.jpg');">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>LOTTO SIMULATOR</h1>
-                            <!-- <span class="subheading">나눔복권</span> -->
-                            <div class="d-flex justify-content-end mb-4" style="position: fixed; right: 1em;"><a class="btn btn-primary text-uppercase" href="#!" onclick="play()">Play →</a></div>
+                            <div class="d-flex fixed">
+                                <div class="buttons">
+                                    <button class="blob-btn" onclick="play()">
+                                      play
+                                      <span class="blob-btn__inner">
+                                        <span class="blob-btn__blobs">
+                                          <span class="blob-btn__blob"></span>
+                                          <span class="blob-btn__blob"></span>
+                                          <span class="blob-btn__blob"></span>
+                                          <span class="blob-btn__blob"></span>
+                                        </span>
+                                      </span>
+                                    </button>
+                                  </div>
+                            </div>
+                            <div style="display:none">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                    <defs>
+                                      <filter id="goo">
+                                        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                                        <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                                      </filter>
+                                    </defs>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
