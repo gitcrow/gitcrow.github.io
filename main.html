@@ -18,14 +18,54 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script type="text/javascript">
             var totalBalls = [];
-            //토탈볼에 크롤링으로 통계값 가져와서 넣기시도
             $(document).ready(function() {
                 sessionStorage.removeItem("now");
-                const balls = [158, 146, 156, 152, 144, 152, 156, 144, 121, 153,
-                               156, 168, 165, 165, 153, 153, 160, 165, 157, 159,
-                               157, 135, 136, 152, 140, 154, 161, 142, 143, 146,
-                               155, 133, 165, 177, 150, 152, 159, 155, 153, 162,
-                               140, 145, 157, 154, 164];
+                const balls = [
+                    158,
+                    146,
+                    156,
+                    152,
+                    144,
+                    153,
+                    156,
+                    144,
+                    121,
+                    153,
+                        157,
+                        168,
+                        165,
+                        165,
+                        153,
+                        153,
+                        161,
+                        165,
+                        158,
+                        159,
+                            157,
+                            135,
+                            136,
+                            152,
+                            140,
+                            154,
+                            161,
+                            142,
+                            143,
+                            146,
+                                155,
+                                133,
+                                165,
+                                177,
+                                150,
+                                152,
+                                159,
+                                155,
+                                153,
+                                163,
+                                    140,
+                                    145,
+                                    158,
+                                    154,
+                                    164];
                 var ballIndex = 0;
                 balls.forEach((ball,idx) => {
                     ballIndex = idx + 1;
@@ -40,17 +80,32 @@
                 sessionStorage.setItem("now", Date.now());
                 var tmpBalls = totalBalls;
                 var result = [];
+                var sum = 0;
 
                 while(result.length < 6) {
 			        var pickedup = tmpBalls[Math.floor(Math.random() * tmpBalls.length)];
 			        result.push(pickedup);
+                    sum += pickedup;
 			        tmpBalls = tmpBalls.filter((ball) => ball != pickedup);
-		        }
-		        result = result.sort(function(a, b){
+                    if(result.length==6){
+                        result = result.sort(function(a, b){
                                         if(a > b) return 1;
                                         if(a === b) return 0;
                                         if(a < b) return -1;
                                     });
+                        if(sum > 100 && sum <181){
+                            continue;
+                        }else{
+                            let wrongResult = '';
+                            result.forEach(ball => wrongResult += ball+` `);
+                            console.log(wrongResult);
+                            sum = 0;
+                            tmpBalls = totalBalls;
+                            result = [];
+                        }
+                    }
+		        }
+		        
                 var shtml = '';
                 for(var ball of result){
                     if(ball <= 45) shtml = '<span class="ball fifth">'+ball+'</span>';
@@ -99,30 +154,7 @@
                         <div class="site-heading">
                             <h1>LOTTO SIMULATOR</h1>
                             <div class="d-flex fixed">
-                                <div class="buttons">
-                                    <button class="blob-btn" onclick="play()">
-                                      play
-                                      <span class="blob-btn__inner">
-                                        <span class="blob-btn__blobs">
-                                          <span class="blob-btn__blob"></span>
-                                          <span class="blob-btn__blob"></span>
-                                          <span class="blob-btn__blob"></span>
-                                          <span class="blob-btn__blob"></span>
-                                        </span>
-                                      </span>
-                                    </button>
-                                  </div>
-                            </div>
-                            <div style="display:none">
-                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                                    <defs>
-                                      <filter id="goo">
-                                        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-                                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
-                                        <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-                                      </filter>
-                                    </defs>
-                                </svg>
+                                <a class="btn btn-primary text-uppercase" href="#!" onclick="play()">Play</a>
                             </div>
                         </div>
                     </div>
