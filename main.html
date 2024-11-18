@@ -16,13 +16,13 @@
         <link href="./css/styles.css" rel="stylesheet" />
         <link href="./css/common.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> -->
         <script type="text/javascript">
             var totalBalls = [];
             $(document).ready(function() {
-                if(getCookie('gitcrow_lottery') == null){
-                    setCookie('gitcrow_lottery', 0, 1);
-                }
-                alert(document.cookie);
+                //if($.cookie('gitcrow_lottery') == undefined){
+                //    $.cookie('gitcrow_lottery', 0, {expires:365,path:'/'});
+                //}
                 sessionStorage.removeItem("now");
                 const balls = [
                     158,
@@ -129,13 +129,14 @@
                     else {
                         sessionStorage.removeItem("now");
                         clearTimeout(timer);
-                        setCookie('gitcrow_lottery',getCookie('gitcrow_lottery')++,1);
+                        //$.cookie('gitcrow_lottery',$.cookie('gitcrow_lottery')++,{expires:365,path:'/'});
                     }
                     window.scrollTo(0,document.body.scrollHeight);
                 });
             }
             function viewStat(){
-                var shtml = "<h1>플레이 횟수 : "+get_cookie('gitcrow_lottery')+"</h1>";
+                var shtml = '';
+                //shtml = "<h1>플레이 횟수 : "+get_cookie('gitcrow_lottery')+"</h1>";
                 $("#statArea").text('')
                                 .append(shtml);
                 $(".menu").hide();
