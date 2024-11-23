@@ -16,13 +16,13 @@
         <link href="./css/styles.css" rel="stylesheet" />
         <link href="./css/common.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script type="text/javascript">
             var totalBalls = [];
             $(document).ready(function() {
-                //if($.cookie('gitcrow_lottery') == undefined){
-                //    $.cookie('gitcrow_lottery', 0, {expires:365,path:'/'});
-                //}
+                if($.cookie('gitcrow_lottery') == undefined){
+                   $.cookie('gitcrow_lottery', 0, {expires:365,path:'/'});
+                }
                 sessionStorage.removeItem("now");
                 const balls = [
                     158,
@@ -102,7 +102,7 @@
                             continue;
                         }else{
                             let wrongResult = '';
-                            result.forEach(ball => wrongResult += ball+` `);
+                            result.forEach(ball => wrongResult.concat(ball).concat(' '));
                             console.log(wrongResult);
                             sum = 0;
                             tmpBalls = totalBalls;
@@ -129,14 +129,14 @@
                     else {
                         sessionStorage.removeItem("now");
                         clearTimeout(timer);
-                        //$.cookie('gitcrow_lottery',$.cookie('gitcrow_lottery')++,{expires:365,path:'/'});
+                        $.cookie('gitcrow_lottery',$.cookie('gitcrow_lottery')++,{expires:365,path:'/'});
                     }
                     window.scrollTo(0,document.body.scrollHeight);
                 });
             }
             function viewStat(){
                 var shtml = '';
-                //shtml = "<h1>플레이 횟수 : "+get_cookie('gitcrow_lottery')+"</h1>";
+                shtml = "<h1>플레이 횟수 : "+$.cookie('gitcrow_lottery')+"</h1>";
                 $("#statArea").text('')
                                 .append(shtml);
                 $(".menu").hide();
@@ -173,6 +173,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>LOTTO SIMULATOR</h1>
+                            <span class="subheading">1147회 updated</span>
                             <div class="d-flex fixed">
                                 <a class="btn btn-primary text-uppercase" href="#!" onclick="play()">Play</a>
                             </div>
