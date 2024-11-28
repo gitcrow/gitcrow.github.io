@@ -129,7 +129,8 @@
                     else {
                         sessionStorage.removeItem("now");
                         clearTimeout(timer);
-                        $.cookie('gitcrow_lottery',parseInt($.cookie('gitcrow_lottery'))++,{expires:365,path:'/'});
+                        var playedcnt = parseInt($.cookie('gitcrow_lottery'));
+                        $.cookie('gitcrow_lottery', ++playedcnt, {expires:365,path:'/'});
                     }
                     window.scrollTo(0,document.body.scrollHeight);
                 });
