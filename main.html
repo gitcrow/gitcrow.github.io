@@ -91,7 +91,7 @@
                 while(result.length < 6) {
 			        var pickedup = tmpBalls[Math.floor(Math.random() * tmpBalls.length)];
 			        result.push(pickedup);
-                    sum += pickedup;
+                    //sum += pickedup; 합통계 검증 제거
 			        tmpBalls = tmpBalls.filter((ball) => ball != pickedup);
                     if(result.length==6){
                         result = result.sort(function(a, b){
