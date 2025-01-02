@@ -20,12 +20,14 @@
         <script type="text/javascript">
             var totalBalls = [];
             $(document).ready(function() {
-                $("#updateDisplay").text("1150회 updated");
+                $("#updateDisplay").text("1151회 업데이트");
                 if($.cookie('gitcrow_lottery') == undefined){
                    $.cookie('gitcrow_lottery', 0, {expires:365,path:'/'});
                 }
                 sessionStorage.removeItem("now");
                 const balls = [
+                    158,
+                    147,
                     158,
                     147,
                     158,
@@ -35,11 +37,13 @@
                     157,
                     146,
                     123,
+                    123,
                     153,
                         158,
                         168,
                         166,
                         165,
+                        156,
                         156,
                         154,
                         161,
@@ -52,6 +56,7 @@
                             153,
                             140,
                             155,
+                            163,
                             163,
                             142,
                             144,
