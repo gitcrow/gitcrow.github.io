@@ -183,7 +183,18 @@
                 $(".menu.tab2").show();
             }
             function viewMail(){
+                $(".menu").hide();
                 $(".menu.tab3").show();
+            }
+            function viewPrice(){
+                $(".menu").hide();
+                $(".menu.tab4").show();
+            }
+            function fnCalculate(){
+                const fee = 0.000043319*2;
+                const tax = 0.0015;
+                var evenP = $("#buyP").val() + $("#buyP").val() * fee + $("#buyP").val() * tax;
+                $("#break_evenP").val(evenP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             }
         </script>
     </head>
@@ -201,6 +212,7 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#" onclick="viewHome();">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#" onclick="viewStat();">통계</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#" onClick="viewMail();">전송</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#" onclick="viewPrice();">손익분기매입가</a></li>
                     </ul>
                 </div>
             </div>
@@ -235,6 +247,18 @@
                             <input type="hidden" name="message" value="">
                             <input type="submit" id="sbtn" value="메일전송" >
                         </form>
+                    </div>
+                    <div id="priceArea" class="menu tab4" style="text-align: center;">
+                        <table>
+                            <tr>
+                                <th>평균매입가</th>
+                                <th>손익분기매입가</th>
+                            </tr>
+                            <tr>
+                                <td><input type="number" id="buyP" onkeyup="fnCalculate();"></td>
+                                <td id="break_evenP"></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
