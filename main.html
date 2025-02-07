@@ -193,8 +193,10 @@
             function fnCalculate(){
                 const fee = 0.000043319*2;
                 const tax = 0.0015;
-                var evenP = $("#buyP").val() + $("#buyP").val() * fee + $("#buyP").val() * tax;
-                $("#break_evenP").val(evenP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                const buyP = parseInt($("#buyP").val());
+                var evenP = Math.ceil(buyP + buyP * fee + buyP * tax);
+                $("#break_evenP").text('');
+                $("#break_evenP").text(evenP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             }
         </script>
     </head>
@@ -252,10 +254,10 @@
                         <table>
                             <tr>
                                 <th>평균매입가</th>
-                                <th>손익분기매입가</th>
+                                <td><input type="number" id="buyP" onkeyup="fnCalculate();"></td>
                             </tr>
                             <tr>
-                                <td><input type="number" id="buyP" onkeyup="fnCalculate();"></td>
+                                <th>손익분기매입가</th>
                                 <td id="break_evenP"></td>
                             </tr>
                         </table>
